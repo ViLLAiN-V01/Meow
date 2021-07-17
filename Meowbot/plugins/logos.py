@@ -14,12 +14,12 @@ PICS_STR = []
 @bot.on(sudo_cmd(pattern=r"logo ?(.*)", allow_sudo=True))
 async def lg1(mewevent):
     event = await eor(mewevent, "`Processing.....`")
-    fnt = await get_font_file(mewevent.client, "@MEOW_FRONTS")
+    fnt = await get_font_file(mewevent.client, "@LiONFRONTS")
     if mewevent.reply_to_msg_id:
         rply = await mewevent.get_reply_message()
         logo_ = await rply.download_media()
     else:
-        async for i in bot.iter_messages("@MEOWBOT_LOGOS", filter=InputMessagesFilterPhotos):
+        async for i in bot.iter_messages("@LionXLOGOS", filter=InputMessagesFilterPhotos):
     	    PICS_STR.append(i)
         pic = random.choice(PICS_STR)
         logo_ = await pic.download_media()
