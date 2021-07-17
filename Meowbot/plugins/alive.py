@@ -34,10 +34,10 @@ msg = f"""
 {Config.ALIVE_MSG}
 **🌹 Meow 𝚂𝚝𝚊𝚝𝚞𝚜 🌹**
 **TeleThon :**  `{tel_ver}`
-**ℳêøա   :**  **{mew_ver}**
-**Uptime   :**  `{uptime}`
-**Abuse    :**  **{abuse_m}**
-**Sudo      :**  **{is_sudo}**
+**ℳêøա    :**  **{mew_ver}**
+**Uptime    :**  `{uptime}`
+**Abuse     :**  **{abuse_m}**
+**Sudo        :**  **{is_sudo}**
 """
 botname = Config.BOT_USERNAME
 
