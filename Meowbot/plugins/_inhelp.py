@@ -19,7 +19,7 @@ from . import *
 
 mew_row = Config.BUTTONS_IN_HELP
 mew_emoji = Config.EMOJI_IN_HELP
-mew_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/58df4d86400922aa32acd.jpg"
+mew_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/d9ed9caf60dd8acee435d.jpg"
 cstm_pmp = Config.CUSTOM_PMPERMIT
 ALV_PIC = Config.ALIVE_PIC
 
@@ -46,15 +46,15 @@ MEOW_FIRST = (
     "{}\n\n**Please Choose Why You Are Here!!**".format(mew_mention, mssge))
 
 alive_txt = """
-**⚜️ ʍɛօաɮօȶιѕ σиℓιиє ⚜️**
+**🔥 мєσωвσт ιѕ σиℓιиє 🔥**
 {}
-**🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅**
+**⚡ мєσω 𝚂𝚝𝚊𝚝𝚞𝚜 ⚡**
 
-**Telethon :**  `{}`
-**ℳêøաɮøƚ  :**  **{}**
+**TeleThon :**  `{}`
+**Meow     :**  **{}**
 **Uptime   :**  `{}`
 **Abuse    :**  **{}**
-**Sudo      :**  **{}**
+**Sudo    :**  **{}**
 """
 
 def button(page, modules):
@@ -79,13 +79,13 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-               f"◀️ Back {mew_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+               f"🔻 Back {mew_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
             ),
             custom.Button.inline(
-               f"• ❌ •", data="close"
+               f"• 🔙 •", data="close"
             ),
             custom.Button.inline(
-               f"{mew_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+               f"{mew_emoji} Next 🔺", data=f"page({0 if page == (max_pages - 1) else page + 1})"
             ),
         ]
     )
@@ -108,7 +108,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     apn.append(y)
             result = await builder.article(
                 f"Hey! Only use .help please",
-                text=f"🔰 **{mew_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
+                text=f"🇮🇳 **{mew_mention}**\n\n💐 __No.of Plugins__ : `{len(CMD_HELP)}` \n🌹 __Commands__ : `{len(apn)}`\n📍 __Page__ : 1/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False,
             )
@@ -170,18 +170,18 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 text=hel_l,
                 buttons=[
                     [
-                        custom.Button.inline("📝 Request 📝", data="req"),
-                        custom.Button.inline("💬 Chat 💬", data="chat"),
+                        custom.Button.inline("📌 Request 📌", data="req"),
+                        custom.Button.inline("🌹 Chat 🌹", data="chat"),
                     ],
-                    [custom.Button.inline("🚫 Spam 🚫", data="heheboi")],
-                    [custom.Button.inline("Curious ❓", data="pmclick")],
+                    [custom.Button.inline("💥 Spam 💥", data="heheboi")],
+                    [custom.Button.inline("Curious ✨", data="pmclick")],
                 ],
             )
 
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
-                text=f"**⚡ ʟɛɢɛռɖaʀʏ ᴀғ ʍɛօաɮօȶ ⚡**",
+                text=f"**✨ ʟɛɢɛռ∂ѕ σf мєσω ✨**",
                 buttons=[
                     [Button.url("📑 Repo 📑", "https://t.me/MeowUbChat")],
                     [Button.url("🚀 Deploy 🚀", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamMew%2FMeowBot&template=https%3A%2F%2Fgithub.com%2FTeamMew%2Fmewbot")],
@@ -203,7 +203,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 text="""**Hey! This is [ℳêøաɮøƚ](https://t.me/Its_Meowbot) \nYou can know more about me from the links given below 👇**""",
                 buttons=[
                     [
-                        custom.Button.url("🔥 CHANNEL 🔥", "https://t.me/Its_MeowBot"),
+                        custom.Button.url("🌺 CHANNEL 🌺", "https://t.me/Its_MeowBot"),
                         custom.Button.url(
                             "⚡ GROUP ⚡", "https://t.me/MeowUbChat"
                         ),
@@ -213,7 +213,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                             "✨ REPO ✨", "https://github.com/TeamMew/MeowBot"),
                         custom.Button.url
                     (
-                            "🔰 TUTORIAL 🔰", "https://youtu.be/M2FQJq_sHp4"
+                            "🖍️ TUTORIAL 🖍️", "https://youtu.be/M2FQJq_sHp4"
                     )
                     ],
                 ],
@@ -229,7 +229,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"🔰 This is ℳêøաɮøƚ PM Security for {mew_mention} to keep away unwanted retards from spamming PM..."
+                f"🌹 This is ℳҽøω ρɱ Security for {mew_mention} to keep away unwanted retards from spamming PM..."
             )
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"req")))
@@ -239,7 +239,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"✅ **Request Registered** \n\n{mew_mention} will now decide to look for your request or not.\n😐 Till then wait patiently and don't spam!!"
+                f"🌿 **Request Registered** \n\n{mew_mention} will now decide to look for your request or not.\n😐 Till then wait patiently and don't spam!!"
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             first_name = html.escape(target.user.first_name)
@@ -276,7 +276,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"🥴 **Nikal lawde\nPehli fursat me nikal**"
+                f"😏 **Jaa Na Bagad Bille\nDubara Mat dikh jaana**"
             )
             await bot(functions.contacts.BlockRequest(event.query.user_id))
             target = await event.client(GetFullUserRequest(event.query.user_id))
@@ -306,7 +306,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         await bot.edit_permissions(
             event.chat_id, int(Meow[0]), send_message=True, until_date=None
         )
-        await event.edit("Yay! You can chat now !!")
+        await event.edit("Yay! You can meow meow now !!")
 
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"reopen")))
@@ -320,12 +320,12 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     for y in x:
                         apn.append(y)
                 await event.edit(
-                    f"🔰 **{mew_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
+                    f"🇮🇳 **{mew_mention}**\n\n🌹 __No.of Plugins__ : `{len(CMD_HELP)}` \n🌷 __Commands__ : `{len(apn)}`\n📌 __Page__ : 1/{veriler[0]}",
                     buttons=simp[1],
                     link_preview=False,
                 )
             else:
-                reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © ℳêøաɮøƚ ™"
+                reply_pop_up_alert = "Hoo gya aapka. Kabse Meow Meow dabae jaa rhe ho. Khudka Meow Banao agr aapko bhi chaiye to. © ℳêøաɮøƚ ™"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         
 
@@ -333,7 +333,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             veriler = custom.Button.inline(f"{mew_emoji} Re-Open Menu {mew_emoji}", data="reopen")
-            await event.edit(f"**⚜️ ℳêøաɮøƚ Mêñû Prõvîdêr ìs ñôw Çlösëd ⚜️**\n\n**Bot Of :**  {mew_mention}\n\n        [©️ ℳêøաɮøƚ ™️]({chnl_link})", buttons=veriler, link_preview=False)
+            await event.edit(f"**🌹 ℳêøաɮøƚ Mêñû Prõvîdêr ìs ñôw Çlösëd 🌹**\n\n**Bot Of :**  {mew_mention}\n\n        [©️ ℳêøաɮøƚ ™️]({chnl_link})", buttons=veriler, link_preview=False)
         else:
             reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © ℳêøաɮøƚ ™"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -349,13 +349,13 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 apn.append(y)
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"🔰 **{mew_mention}**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}`\n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : {page + 1}/{veriler[0]}",
+                f"🇮🇳 **{mew_mention}**\n\n🌹 __No.of Plugins__ : `{len(CMD_HELP)}`\n✨ __Commands__ : `{len(apn)}`\n📌 __Page__ : {page + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False,
             )
         else:
             return await event.answer(
-                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © ℳêøաɮøƚ ™",
+                "Hoo gya aapka. Kabse Meow Meow dabae jaa rhe ho. Khudka Meow bnalo na agr chaiye to. © ℳêøաɮøƚ ™",
                 cache_time=0,
                 alert=True,
             )
@@ -370,7 +370,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         try:
             buttons = [
                 custom.Button.inline(
-                    "⚡ " + cmd[0] + " ⚡", data=f"commands[{commands}[{page}]]({cmd[0]})"
+                    "✨ " + cmd[0] + " ✨", data=f"commands[{commands}[{page}]]({cmd[0]})"
                 )
                 for cmd in CMD_HELP_BOT[commands]["commands"].items()
             ]
@@ -383,7 +383,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         buttons.append([custom.Button.inline(f"{mew_emoji} Main Menu {mew_emoji}", data=f"page({page})")])
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
-                f"**📗 File :**  `{commands}`\n**🔢 Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
+                f"**🖍️ File :**  `{commands}`\n**✴️ Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
                 buttons=buttons,
                 link_preview=False,
             )
@@ -402,24 +402,24 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         cmd = event.data_match.group(1).decode("UTF-8")
         page = int(event.data_match.group(2).decode("UTF-8"))
         commands = event.data_match.group(3).decode("UTF-8")
-        result = f"**📗 File :**  `{cmd}`\n"
+        result = f"**🖍️ File :**  `{cmd}`\n"
         if CMD_HELP_BOT[cmd]["info"]["info"] == "":
             if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
                 result += f"**⚠️ Warning :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
         else:
             if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
                 result += f"**⚠️ Warning :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n"
-            result += f"**ℹ️ Info :**  {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
+            result += f"**♻️ Info :**  {CMD_HELP_BOT[cmd]['info']['info']}\n\n"
         command = CMD_HELP_BOT[cmd]["commands"][commands]
         if command["params"] is None:
-            result += f"**🛠 Commands :**  `{HANDLER[:1]}{command['command']}`\n"
+            result += f"**❇️ Commands :**  `{HANDLER[:1]}{command['command']}`\n"
         else:
-            result += f"**🛠 Commands :**  `{HANDLER[:1]}{command['command']} {command['params']}`\n"
+            result += f"**❇️ Commands :**  `{HANDLER[:1]}{command['command']} {command['params']}`\n"
         if command["example"] is None:
-            result += f"**💬 Explanation :**  `{command['usage']}`\n\n"
+            result += f"**💟 Explanation :**  `{command['usage']}`\n\n"
         else:
-            result += f"**💬 Explanation :**  `{command['usage']}`\n"
-            result += f"**⌨️ For Example :**  `{HANDLER[:1]}{command['example']}`\n\n"
+            result += f"**💟 Explanation :**  `{command['usage']}`\n"
+            result += f"**💞 For Example :**  `{HANDLER[:1]}{command['example']}`\n\n"
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
                 result,
@@ -430,7 +430,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
         else:
             return await event.answer(
-                "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © ℳêøաɮøƚ ™",
+                "Hoo gya aapka. Kabse Meow Meow dabae jaa rhe h. Khudka Meow bnalo na agr chaiye to. © ℳêøաɮøƚ ™",
                 cache_time=0,
                 alert=True,
             )
