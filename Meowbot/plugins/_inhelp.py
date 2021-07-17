@@ -35,13 +35,13 @@ LOG_GP = Config.LOGGER_ID
 mssge = (
     str(cstm_pmp)
     if cstm_pmp
-    else "**You Have Trespassed To My Master's PM!\nThis Is Illegal And Regarded As Crime.**"
+    else "**You Have Trespassed To My Master's PM!\nDo not spam here, else you will be blocked automatically.**"
 )
 
 USER_BOT_WARN_ZERO = "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
 
 MEOW_FIRST = (
-    "**🔥 ℳêøաɮøƚ Prîvã†é Sêçürïty Prø†öçõl 🔥**\n\nThis is to inform you that "
+    "**🔥Ⱨҽყ ƚɦιʂ ιʂ ℳêøաɮøƚ P͆M̾ Sêçürïty 🔥**\n\nThis is to inform you that "
     "{} is currently unavailable.\nThis is an automated message.\n\n"
     "{}\n\n**Please Choose Why You Are Here!!**".format(mew_mention, mssge))
 
@@ -50,11 +50,11 @@ alive_txt = """
 {}
 **⚡ мєσω 𝚂𝚝𝚊𝚝𝚞𝚜 ⚡**
 
-**TeleThon :**  `{}`
-**Meow     :**  **{}**
-**Uptime   :**  `{}`
-**Abuse    :**  **{}**
-**Sudo    :**  **{}**
+**тєℓєтнσи :**  `{}`
+**мєσω     :**  **{}**
+**υρтιмє   :**  `{}`
+**αвυѕє    :**  **{}**
+**ѕυ∂σ     :**  **{}**
 """
 
 def button(page, modules):
@@ -79,13 +79,13 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-               f"🔻 Back {mew_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+               f"◀️ Back {mew_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
             ),
             custom.Button.inline(
                f"• 🔙 •", data="close"
             ),
             custom.Button.inline(
-               f"{mew_emoji} Next 🔺", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+               f"{mew_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
             ),
         ]
     )
