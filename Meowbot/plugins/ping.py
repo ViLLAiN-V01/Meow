@@ -9,11 +9,11 @@ async def pong(Meow):
     if Meow.fwd_from:
         return
     start = datetime.datetime.now()
-    event = await eor(Meow, "`·.·★ ℘ıŋɠ ★·.·´")
+    event = await eor(Meow, "`⊰ քɨռɢ ⊱´")
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(
-        f"╰•★★  ℘ơŋɠ ★★•╯\n\n    ⚘  `{ms}`\n    ⚘  __**Oɯɳҽɾ**__ **:**  {mew_mention}"
+        f"╰•⟪『քօռɢ』⟫•╯\n\n    ✨  `{ms}`\n    ✨  __**Oառҽʀ**__ **:**  {mew_mention}"
     )
 
 
