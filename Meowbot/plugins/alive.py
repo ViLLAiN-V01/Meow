@@ -12,11 +12,11 @@ from . import *
 mew_pic = Config.ALIVE_PIC or "https://telegra.ph/file/9c7697cc000ea739d1986.jpg"
 alive_c = f"__**😺😺ʍɛօա ɨs օռʟɨռɛ😺😺**__\n\n"
 alive_c += f"__↼ Øwñêr ⇀__ : 『 {mew_mention} 』\n\n"
-alive_c += f"•😽• TeleThon     :  `{tel_ver}` \n"
+alive_c += f"•😽• тεℓεтнση     :  `{tel_ver}` \n"
 alive_c += f"•😼• ℳêøա       :  __**{mew_ver}**__\n"
-alive_c += f"•😹• Sudo           :  `{is_sudo}`\n"
-alive_c += f"•😻• Channel      :  {mew_channel}\n"
-
+alive_c += f"•😹• sυ∂σ           :  `{is_sudo}`\n"
+alive_c += f"•😻• cнαηηεℓ      :  {mew_channel}\n"
+alive_c += f"•😽• υρтιмε      : `{uptime}`\n"
 #-------------------------------------------------------------------------------
 
 @bot.on(mew_cmd(outgoing=True, pattern="alive$"))
@@ -33,11 +33,11 @@ msg = f"""
 **✨ ʍɛօա ιѕ σиℓιиє ✨**
 {Config.ALIVE_MSG}
 **🌹 Meow 𝚂𝚝𝚊𝚝𝚞𝚜 🌹**
-**TeleThon :**  `{tel_ver}`
+**тєℓєтнσи:**  `{tel_ver}`
 **ℳêøա    :**  **{mew_ver}**
-**Uptime    :**  `{uptime}`
-**Abuse     :**  **{abuse_m}**
-**Sudo        :**  **{is_sudo}**
+**υρтιмє    :**  `{uptime}`
+**αвυѕє     :**  **{abuse_m}**
+**ѕυ∂σ        :**  **{is_sudo}**
 """
 botname = Config.BOT_USERNAME
 
