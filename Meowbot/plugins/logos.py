@@ -14,7 +14,7 @@ PICS_STR = []
 @bot.on(sudo_cmd(pattern=r"logo ?(.*)", allow_sudo=True))
 async def lg1(mewevent):
     event = await eor(mewevent, "`Processing.....`")
-    fnt = await get_font_file(mewevent.client, "@LiONFRONTS")
+    fnt = await get_font_file(mewevent.client, "@LiONFONTS")
     if mewevent.reply_to_msg_id:
         rply = await mewevent.get_reply_message()
         logo_ = await rply.download_media()
