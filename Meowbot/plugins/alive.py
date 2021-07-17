@@ -10,12 +10,12 @@ from . import *
 #-------------------------------------------------------------------------------
 
 mew_pic = Config.ALIVE_PIC or "https://telegra.ph/file/9c7697cc000ea739d1986.jpg"
-alive_c = f"__**🔥🔥ʍɛօաɮօȶ ɨs օռʟɨռɛ🔥🔥**__\n\n"
+alive_c = f"__**😺😺ʍɛօա ɨs օռʟɨռɛ😺😺**__\n\n"
 alive_c += f"__↼ Øwñêr ⇀__ : 『 {mew_mention} 』\n\n"
-alive_c += f"•♦• Telethon     :  `{tel_ver}` \n"
-alive_c += f"•♦• ℳêøաɮøƚ       :  __**{mew_ver}**__\n"
-alive_c += f"•♦• Sudo            :  `{is_sudo}`\n"
-alive_c += f"•♦• Channel      :  {mew_channel}\n"
+alive_c += f"•😽• TeleThon     :  `{tel_ver}` \n"
+alive_c += f"•😼• ℳêøա        :  __**{mew_ver}**__\n"
+alive_c += f"•😹• Sudo            :  `{is_sudo}`\n"
+alive_c += f"•😻• Channel      :  {mew_channel}\n"
 
 #-------------------------------------------------------------------------------
 
@@ -30,19 +30,19 @@ async def up(Meow):
     await Meow.delete()
 
 msg = f"""
-**⚡ ʍɛօաɮօȶιѕ σиℓιиє ⚡**
+**✨ ʍɛօա ιѕ σиℓιиє ✨**
 {Config.ALIVE_MSG}
-**🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅**
-**Telethon :**  `{tel_ver}`
-**ℳêøաɮøƚ  :**  **{mew_ver}**
+**🌹 Meow 𝚂𝚝𝚊𝚝𝚞𝚜 🌹**
+**TeleThon :**  `{tel_ver}`
+**ℳêøա   :**  **{mew_ver}**
 **Uptime   :**  `{uptime}`
 **Abuse    :**  **{abuse_m}**
 **Sudo      :**  **{is_sudo}**
 """
 botname = Config.BOT_USERNAME
 
-@bot.on(mew_cmd(pattern="Meow$"))
-@bot.on(sudo_cmd(pattern="Meow$", allow_sudo=True))
+@bot.on(mew_cmd(pattern="meow$"))
+@bot.on(sudo_cmd(pattern="meow$", allow_sudo=True))
 async def mew_a(event):
     try:
         Meow = await bot.inline_query(botname, "alive")
