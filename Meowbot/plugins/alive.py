@@ -13,8 +13,8 @@ mew_pic = Config.ALIVE_PIC or "https://telegra.ph/file/9c7697cc000ea739d1986.jpg
 alive_c = f"__**😺😺ʍɛօա ɨs օռʟɨռɛ😺😺**__\n\n"
 alive_c += f"__↼ Øwñêr ⇀__ : 『 {mew_mention} 』\n\n"
 alive_c += f"•😽• TeleThon     :  `{tel_ver}` \n"
-alive_c += f"•😼• ℳêøա        :  __**{mew_ver}**__\n"
-alive_c += f"•😹• Sudo            :  `{is_sudo}`\n"
+alive_c += f"•😼• ℳêøա       :  __**{mew_ver}**__\n"
+alive_c += f"•😹• Sudo           :  `{is_sudo}`\n"
 alive_c += f"•😻• Channel      :  {mew_channel}\n"
 
 #-------------------------------------------------------------------------------
