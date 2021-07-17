@@ -14,7 +14,7 @@ async def stats(
 ) -> None:  # pylint: disable = R0912, R0914, R0915
     if event.fwd_from:
         return
-    Meow = await edit_or_reply(event, "`Collecting stats...`")
+    Meow = await edit_or_reply(event, "`cσℓℓεcтιηg sтαтs...`")
     start_time = time.time()
     private_chats = 0
     bots = 0
