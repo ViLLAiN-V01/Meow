@@ -62,12 +62,12 @@ async def get_users(event):
         Meow = await eor(event, "`processing...`")
     else:
         Meow = await eor(event, "`processing...`")
-    he_ll = event.pattern_match.group(1)
-    if he_ll == "@MeowUbChat":
+    me_ow = event.pattern_match.group(1)
+    if me_ow == "@MeowUbChat":
         return await Meow.edit("Restricted to invite users from there.")
-    elif he_ll == "@MeowUbChat":
+    elif me_ow == "@MeowUbChat":
         return await Meow.edit("Restricted to invite users from there.")
-    elif he_ll == "@MeowUbChat":
+    elif me_ow == "@MeowUbChat":
         return await Meow.edit("Restricted to invite users from there.")
     mew = await get_chatinfo(event)
     chat = await event.get_chat()
