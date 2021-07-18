@@ -164,10 +164,10 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 )
 
         elif event.query.user_id == bot.uid and query == "pm_warn":
-            hel_l = MEOW_FIRST.format(mew_mention, mssge)
+            meo_w = MEOW_FIRST.format(mew_mention, mssge)
             result = builder.photo(
                 file=mew_pic,
-                text=hel_l,
+                text=meo_w,
                 buttons=[
                     [
                         custom.Button.inline("📌 Request 📌", data="req"),
