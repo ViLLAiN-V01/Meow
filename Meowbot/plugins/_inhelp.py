@@ -134,7 +134,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             ]
 
         elif event.query.user_id == bot.uid and query == "alive":
-            he_ll = alive_txt.format(Config.ALIVE_MSG, tel_ver, mew_ver, uptime, abuse_m, is_sudo)
+            me_ow = alive_txt.format(Config.ALIVE_MSG, tel_ver, mew_ver, uptime, abuse_m, is_sudo)
             alv_btn = [
                 [Button.url(f"{MEOW_USER}", f"tg://openmessage?user_id={ForGo10God}")],
                 [Button.url("My Channel", f"https://t.me/{my_channel}"), 
@@ -143,21 +143,21 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
                     ALV_PIC,
-                    text=he_ll,
+                    text=me_ow,
                     buttons=alv_btn,
                     link_preview=False,
                 )
             elif ALV_PIC:
                 result = builder.document(
                     ALV_PIC,
-                    text=he_ll,
+                    text=me_ow,
                     title="MeowBot Alive",
                     buttons=alv_btn,
                     link_preview=False,
                 )
             else:
                 result = builder.article(
-                    text=he_ll,
+                    text=me_ow,
                     title="MeowBot Alive",
                     buttons=alv_btn,
                     link_preview=False,
