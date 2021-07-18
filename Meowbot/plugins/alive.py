@@ -9,7 +9,7 @@ from . import *
 
 #-------------------------------------------------------------------------------
 
-mew_pic = Config.ALIVE_PIC or "https://telegra.ph/file/9c7697cc000ea739d1986.jpg"
+mew_pic = Config.ALIVE_PIC or "https://telegra.ph/file/3c2932815330a143fa1a8.png"
 alive_c = f"__**😺😺ʍɛօա ɨs օռʟɨռɛ😺😺**__\n\n"
 alive_c += f"**━━━━━━━━━━━━━━━━━━━━**\n\n"
 alive_c += f"╠⟪Øωηєя⟫╣  ⊱ 【 {mew_mention} 】\n\n"
