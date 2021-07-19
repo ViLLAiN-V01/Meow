@@ -19,7 +19,6 @@ from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 from Meowbot import *
 from Meowbot.helpers import *
 from Meowbot.config import Config
-from Meowbot.sql import sudo_sql as s_ql
 
 # admin cmd or normal user cmd
 def mew_cmd(pattern=None, command=None, **args):
