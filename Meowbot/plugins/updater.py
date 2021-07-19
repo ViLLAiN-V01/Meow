@@ -134,7 +134,7 @@ async def upstream(event):
         repo.create_head("master", origin.refs.master)
         repo.heads.master.set_tracking_branch(origin.refs.master)
         repo.heads.master.checkout(True)
-    ac_br = "master"
+    ac_br = repo.active_branch.name
     if ac_br != UPSTREAM_REPO_BRANCH:
         await event.edit(
             f"`Looks like you are using your own custom git branch ( {ac_br} ). "
