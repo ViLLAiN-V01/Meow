@@ -13,7 +13,7 @@ async def pong(Meow):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(
-        f"╰•⟪『քօռɢ』⟫•╯\n\n    ✨  `{ms}`\n    ✨  __**Oառҽʀ**__ **:**  {mew_mention}"
+        f"•࿙𝖯ØᏁᎶ࿙•\n\n    🌺  `{ms}`\n    🌺  __**Oառҽʀ**__ **:**  {mew_mention}"
     )
 
 
