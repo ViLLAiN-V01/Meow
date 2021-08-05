@@ -183,7 +183,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 title="Repository",
                 text=f"**✨ ʟɛɢɛռ∂ѕ σf мєσω ✨**",
                 buttons=[
-                    [Button.url("📑 Repo 📑", "https://t.me/MeowUbChat")],
+                    [Button.url("📑 Repo 📑", "https://github.com/Mdnoor786/Meow")],
                     [Button.url("🚀 Deploy 🚀", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamMew%2FMeowBot&template=https%3A%2F%2Fgithub.com%2FTeamMew%2Fmewbot")],
                 ],
             )
