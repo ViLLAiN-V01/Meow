@@ -15,6 +15,7 @@ mew_logo = "./Meowbot/resources/pics/mewbot_logo.jpg"
 cjb = "./Meowbot/resources/pics/cjb.jpg"
 restlo = "./Meowbot/resources/pics/rest.jpeg"
 shuru = "./Meowbot/resources/pics/shuru.jpg"
+shhh = "./Meowbot/resources/pics/chup_madarchod.jpeg"
 hl = Config.HANDLER
 shl = Config.SUDO_HANDLER
 mew_ver = __mew__
