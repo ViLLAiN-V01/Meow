@@ -1,19 +1,14 @@
+import html
 from math import ceil
 from re import compile
-import asyncio
-import html
-import os
-import re
-import sys
 
-from telethon import Button, custom, events, functions
-from telethon.tl.functions.users import GetFullUserRequest
+from telethon import Button, custom, functions
+from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.events import InlineQuery, callbackquery
 from telethon.sync import custom
-from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.tl.functions.channels import GetParticipantRequest
-from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
+from telethon.tl.functions.users import GetFullUserRequest
 
 from . import *
 
@@ -38,12 +33,15 @@ mssge = (
     else "**You Have Trespassed To My Master's PM!\nDo not spam here, else you will be blocked automatically.**"
 )
 
-USER_BOT_WARN_ZERO = "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
+USER_BOT_WARN_ZERO = (
+    "Enough Of Your Flooding In My Master's PM!! \n\n**🚫 Blocked and Reported**"
+)
 
 MEOW_FIRST = (
     "**🔥Ⱨҽყ ƚɦιʂ ιʂ ℳêøաɮøƚ P͆M̾ Sêçürïty 🔥**\n\nThis is to inform you that "
     "{} is currently unavailable.\nThis is an automated message.\n\n"
-    "{}\n\n**Please Choose Why You Are Here!!**".format(mew_mention, mssge))
+    "{}\n\n**Please Choose Why You Are Here!!**".format(mew_mention, mssge)
+)
 
 alive_txt = """
 **🔥 мєσωвσт ιѕ σиℓιиє 🔥**
@@ -57,9 +55,9 @@ alive_txt = """
 **ѕυ∂σ     :**  **{}**
 """
 
+
 def button(page, modules):
     Row = mew_row
-    Column = 3
 
     modules = sorted([modul for modul in modules if not modul.startswith("_")])
     pairs = list(map(list, zip(modules[::2], modules[1::2])))
@@ -71,7 +69,10 @@ def button(page, modules):
     for pairs in pairs[page]:
         buttons.append(
             [
-                custom.Button.inline(f"{mew_emoji} " + pair + f" {mew_emoji}", data=f"Information[{page}]({pair})")
+                custom.Button.inline(
+                    f"{mew_emoji} " + pair + f" {mew_emoji}",
+                    data=f"Information[{page}]({pair})",
+                )
                 for pair in pairs
             ]
         )
@@ -79,21 +80,23 @@ def button(page, modules):
     buttons.append(
         [
             custom.Button.inline(
-               f"◀️ Back {mew_emoji}", data=f"page({(max_pages - 1) if page == 0 else (page - 1)})"
+                f"◀️ Back {mew_emoji}",
+                data=f"page({(max_pages - 1) if page == 0 else (page - 1)})",
             ),
+            custom.Button.inline(f"• 🔙 •", data="close"),
             custom.Button.inline(
-               f"• 🔙 •", data="close"
-            ),
-            custom.Button.inline(
-               f"{mew_emoji} Next ▶️", data=f"page({0 if page == (max_pages - 1) else page + 1})"
+                f"{mew_emoji} Next ▶️",
+                data=f"page({0 if page == (max_pages - 1) else page + 1})",
             ),
         ]
     )
     return [max_pages, buttons]
 
-
     modules = CMD_HELP
+
+
 if Config.BOT_USERNAME is not None and tgbot is not None:
+
     @tgbot.on(InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
         builder = event.builder
@@ -125,7 +128,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             result = [
                 await builder.article(
                     title="force_sub",
-                    text = msg,
+                    text=msg,
                     buttons=[
                         [Button.url(text="Channel", url=link)],
                         [custom.Button.inline("🔓 Unmute Me", data=unmute)],
@@ -134,11 +137,15 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             ]
 
         elif event.query.user_id == bot.uid and query == "alive":
-            me_ow = alive_txt.format(Config.ALIVE_MSG, tel_ver, mew_ver, uptime, abuse_m, is_sudo)
+            me_ow = alive_txt.format(
+                Config.ALIVE_MSG, tel_ver, mew_ver, uptime, abuse_m, is_sudo
+            )
             alv_btn = [
                 [Button.url(f"{MEOW_USER}", f"tg://openmessage?user_id={ForGo10God}")],
-                [Button.url("My Channel", f"https://t.me/{my_channel}"), 
-                Button.url("My Group", f"https://t.me/{my_group}")],
+                [
+                    Button.url("My Channel", f"https://t.me/{my_channel}"),
+                    Button.url("My Group", f"https://t.me/{my_group}"),
+                ],
             ]
             if ALV_PIC and ALV_PIC.endswith((".jpg", ".png")):
                 result = builder.photo(
@@ -184,7 +191,12 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 text=f"**✨ ʟɛɢɛռ∂ѕ σf мєσω ✨**",
                 buttons=[
                     [Button.url("📑 Repo 📑", "https://github.com/Mdnoor786/Meow")],
-                    [Button.url("🚀 Deploy 🚀", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamMew%2FMeowBot&template=https%3A%2F%2Fgithub.com%2FTeamMew%2Fmewbot")],
+                    [
+                        Button.url(
+                            "🚀 Deploy 🚀",
+                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamMew%2FMeowBot&template=https%3A%2F%2Fgithub.com%2FTeamMew%2Fmewbot",
+                        )
+                    ],
                 ],
             )
 
@@ -204,23 +216,20 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 buttons=[
                     [
                         custom.Button.url("🌺 CHANNEL 🌺", "https://t.me/Its_MeowBot"),
-                        custom.Button.url(
-                            "⚡ GROUP ⚡", "https://t.me/MeowUbChat"
-                        ),
+                        custom.Button.url("⚡ GROUP ⚡", "https://t.me/MeowUbChat"),
                     ],
                     [
                         custom.Button.url(
-                            "✨ REPO ✨", "https://github.com/TeamMew/MeowBot"),
-                        custom.Button.url
-                    (
+                            "✨ REPO ✨", "https://github.com/TeamMew/MeowBot"
+                        ),
+                        custom.Button.url(
                             "🖍️ TUTORIAL 🖍️", "https://youtu.be/M2FQJq_sHp4"
-                    )
+                        ),
                     ],
                 ],
                 link_preview=False,
             )
         await event.answer([result] if result else None)
-
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"pmclick")))
     async def on_pm_click(event):
@@ -249,7 +258,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             tosend = f"**👀 Hey {mew_mention} !!** \n\n⚜️ You Got A Request From [{first_name}](tg://user?id={ok}) In PM!!"
             await bot.send_message(LOG_GP, tosend)
 
-
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"chat")))
     async def on_pm_click(event):
         event.query.user_id
@@ -268,16 +276,13 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             tosend = f"**👀 Hey {mew_mention} !!** \n\n⚜️ You Got A PM from  [{first_name}](tg://user?id={ok})  for random chats!!"
             await bot.send_message(LOG_GP, tosend)
 
-
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"heheboi")))
     async def on_pm_click(event):
         if event.query.user_id == bot.uid:
             reply_pop_up_alert = "This is for other users!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
-            await event.edit(
-                f"😏 **Jaa Na Bagad Bille\nDubara Mat dikh jaana**"
-            )
+            await event.edit(f"😏 **Jaa Na Bagad Bille\nDubara Mat dikh jaana**")
             await bot(functions.contacts.BlockRequest(event.query.user_id))
             target = await event.client(GetFullUserRequest(event.query.user_id))
             ok = event.query.user_id
@@ -290,7 +295,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 f"**Blocked**  [{first_name}](tg://user?id={ok}) \n\nReason:- Spam",
             )
 
-
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"unmute")))
     async def on_pm_click(event):
         hunter = (event.data_match.group(1)).decode("UTF-8")
@@ -300,44 +304,45 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         try:
             await bot(GetParticipantRequest(int(Meow[1]), int(Meow[0])))
         except UserNotParticipantError:
-            return await event.answer(
-                "You need to join the channel first.", alert=True
-            )
+            return await event.answer("You need to join the channel first.", alert=True)
         await bot.edit_permissions(
             event.chat_id, int(Meow[0]), send_message=True, until_date=None
         )
         await event.edit("Yay! You can meow meow now !!")
 
-
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"reopen")))
     async def reopn(event):
-            if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
-                current_page_number=0
-                simp = button(current_page_number, CMD_HELP)
-                veriler = button(0, sorted(CMD_HELP))
-                apn = []
-                for x in CMD_LIST.values():
-                    for y in x:
-                        apn.append(y)
-                await event.edit(
-                    f"🇮🇳 **{mew_mention}**\n\n🌹 __No.of Plugins__ : `{len(CMD_HELP)}` \n🌷 __Commands__ : `{len(apn)}`\n📌 __Page__ : 1/{veriler[0]}",
-                    buttons=simp[1],
-                    link_preview=False,
-                )
-            else:
-                reply_pop_up_alert = "Hoo gya aapka. Kabse Meow Meow dabae jaa rhe ho. Khudka Meow Banao agr aapko bhi chaiye to. © ℳêøաɮøƚ ™"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-        
+        if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
+            current_page_number = 0
+            simp = button(current_page_number, CMD_HELP)
+            veriler = button(0, sorted(CMD_HELP))
+            apn = []
+            for x in CMD_LIST.values():
+                for y in x:
+                    apn.append(y)
+            await event.edit(
+                f"🇮🇳 **{mew_mention}**\n\n🌹 __No.of Plugins__ : `{len(CMD_HELP)}` \n🌷 __Commands__ : `{len(apn)}`\n📌 __Page__ : 1/{veriler[0]}",
+                buttons=simp[1],
+                link_preview=False,
+            )
+        else:
+            reply_pop_up_alert = "Hoo gya aapka. Kabse Meow Meow dabae jaa rhe ho. Khudka Meow Banao agr aapko bhi chaiye to. © ℳêøաɮøƚ ™"
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"close")))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
-            veriler = custom.Button.inline(f"{mew_emoji} Re-Open Menu {mew_emoji}", data="reopen")
-            await event.edit(f"**🌹 ℳêøաɮøƚ Mêñû Prõvîdêr ìs ñôw Çlösëd 🌹**\n\n**Bot Of :**  {mew_mention}\n\n        [©️ ℳêøաɮøƚ ™️]({chnl_link})", buttons=veriler, link_preview=False)
+            veriler = custom.Button.inline(
+                f"{mew_emoji} Re-Open Menu {mew_emoji}", data="reopen"
+            )
+            await event.edit(
+                f"**🌹 ℳêøաɮøƚ Mêñû Prõvîdêr ìs ñôw Çlösëd 🌹**\n\n**Bot Of :**  {mew_mention}\n\n        [©️ ℳêøաɮøƚ ™️]({chnl_link})",
+                buttons=veriler,
+                link_preview=False,
+            )
         else:
             reply_pop_up_alert = "Hoo gya aapka. Kabse tapar tapar dabae jaa rhe h. Khudka bna lo na agr chaiye to. © ℳêøաɮøƚ ™"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-   
 
     @tgbot.on(callbackquery.CallbackQuery(data=compile(b"page\((.+?)\)")))
     async def page(event):
@@ -360,7 +365,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 alert=True,
             )
 
-
     @tgbot.on(
         callbackquery.CallbackQuery(data=compile(b"Information\[(\d*)\]\((.*)\)"))
     )
@@ -380,7 +384,13 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             )
 
         buttons = [buttons[i : i + 2] for i in range(0, len(buttons), 2)]
-        buttons.append([custom.Button.inline(f"{mew_emoji} Main Menu {mew_emoji}", data=f"page({page})")])
+        buttons.append(
+            [
+                custom.Button.inline(
+                    f"{mew_emoji} Main Menu {mew_emoji}", data=f"page({page})"
+                )
+            ]
+        )
         if event.query.user_id == bot.uid or event.query.user_id in Config.SUDO_USERS:
             await event.edit(
                 f"**🖍️ File :**  `{commands}`\n**✴️ Number of commands :**  `{len(CMD_HELP_BOT[commands]['commands'])}`",
@@ -394,7 +404,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 alert=True,
             )
 
-
     @tgbot.on(
         callbackquery.CallbackQuery(data=compile(b"commands\[(.*)\[(\d*)\]\]\((.*)\)"))
     )
@@ -405,7 +414,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         result = f"**🖍️ File :**  `{cmd}`\n"
         if CMD_HELP_BOT[cmd]["info"]["info"] == "":
             if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
-                result += f"**⚠️ Warning :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
+                result += (
+                    f"**⚠️ Warning :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
+                )
         else:
             if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
                 result += f"**⚠️ Warning :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n"
@@ -424,7 +435,10 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.edit(
                 result,
                 buttons=[
-                    custom.Button.inline(f"{mew_emoji} Return {mew_emoji}", data=f"Information[{page}]({cmd})")
+                    custom.Button.inline(
+                        f"{mew_emoji} Return {mew_emoji}",
+                        data=f"Information[{page}]({cmd})",
+                    )
                 ],
                 link_preview=False,
             )

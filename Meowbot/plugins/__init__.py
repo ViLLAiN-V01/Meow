@@ -1,12 +1,13 @@
 import datetime
+
+from telethon import version
+
 from Meowbot import *
 from Meowbot.config import Config
 from Meowbot.helpers import *
-from Meowbot.utils import *
 from Meowbot.random_strings import *
+from Meowbot.utils import *
 from Meowbot.version import __mew__
-from telethon import version
-
 
 MEOW_USER = bot.me.first_name
 ForGo10God = bot.uid
@@ -21,12 +22,14 @@ shl = Config.SUDO_HANDLER
 mew_ver = __mew__
 tel_ver = version.__version__
 
+
 async def get_user_id(ids):
     if str(ids).isdigit():
         userid = int(ids)
     else:
         userid = (await bot.get_entity(ids)).id
     return userid
+
 
 sudos = Config.SUDO_USERS
 if sudos:
@@ -38,7 +41,7 @@ abus = Config.ABUSE
 if abus == "ON":
     abuse_m = "Enabled"
 else:
-    abuse_m ="Disabled"
+    abuse_m = "Disabled"
 
 START_TIME = datetime.datetime.now()
 uptime = f"{str(datetime.datetime.now() - START_TIME).split('.')[0]}"

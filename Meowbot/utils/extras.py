@@ -1,24 +1,10 @@
 import asyncio
-import datetime
-import importlib
-import inspect
-import logging
-import math
 import os
 import re
-import sys
-import time
-import traceback
-from pathlib import Path
-from time import gmtime, strftime
-
-from telethon import events
-from telethon.tl.functions.channels import GetParticipantRequest
-from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
 from Meowbot import *
-from Meowbot.helpers import *
 from Meowbot.config import Config
+from Meowbot.helpers import *
 
 
 # either edit or reply that msg
@@ -99,5 +85,6 @@ async def delete_mew(event, text, time=None, parse_mode=None, link_preview=None)
         )
     await asyncio.sleep(time)
     return await mewevent.delete()
+
 
 # Meowbot

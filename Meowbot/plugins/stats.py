@@ -79,9 +79,7 @@ async def stats(
     response += f"☪️ **υηяεα∂:** {unread} \n"
     response += f"☪️ **υηяεα∂ мεηтισηs:** {unread_mentions} \n\n"
     response += f"💟   __It Took:__ {stop_time:.02f}s \n"
-    response += (
-        f"✨ **ρσωεяε∂ вү ** {mew_channel} 🌠"
-    )
+    response += f"✨ **ρσωεяε∂ вү ** {mew_channel} 🌠"
     await Meow.edit(response)
 
 
@@ -103,9 +101,5 @@ def user_full_name(user):
 
 
 CmdHelp("stats").add_command(
-  'stats', None, 'Shows you the count of your groups, channels, private chats, etc.'
-).add_info(
-  'Statistics Of Account'
-).add_warning(
-  '✅ Harmless Module.'
-).add()
+    "stats", None, "Shows you the count of your groups, channels, private chats, etc."
+).add_info("Statistics Of Account").add_warning("✅ Harmless Module.").add()

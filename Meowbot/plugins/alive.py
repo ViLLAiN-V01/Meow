@@ -1,13 +1,9 @@
-from telethon import events
-from telethon.events import NewMessage
-from telethon.tl.custom import Dialog
-from telethon.tl.types import Channel, Chat, User
 from telethon.errors import ChatSendInlineForbiddenError as noin
 from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot
 
 from . import *
 
-#-------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 
 mew_pic = Config.ALIVE_PIC or "https://telegra.ph/file/3c2932815330a143fa1a8.png"
 alive_c = f"__**😺😺ʍɛօա ɨs օռʟɨռɛ😺😺**__\n\n"
@@ -21,7 +17,8 @@ alive_c += f"┣⧼• cнαηηεℓ     ⊱  {mew_channel}\n"
 alive_c += f"┣⧼• ℓιcεηsε     ⊱ [Meow](GitHub.com/TeamMew)\n"
 alive_c += f"┣⧼• υρтιмε      ⊱ `{uptime}`\n"
 alive_c += f"┗━━━━━━━━━━━━━━━━━━━\n"
-#-------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
+
 
 @bot.on(mew_cmd(outgoing=True, pattern="alive$"))
 @bot.on(sudo_cmd(pattern="alive$", allow_sudo=True))
@@ -32,6 +29,7 @@ async def up(Meow):
     await Meow.delete()
     await bot.send_file(Meow.chat_id, mew_pic, caption=alive_c)
     await Meow.delete()
+
 
 msg = f"""
 **✨ ʍɛօա ιѕ σиℓιиє ✨**
@@ -44,6 +42,7 @@ msg = f"""
 **ѕυ∂σ        :**  **{is_sudo}**
 """
 botname = Config.BOT_USERNAME
+
 
 @bot.on(mew_cmd(pattern="meow$"))
 @bot.on(sudo_cmd(pattern="meow$", allow_sudo=True))
@@ -58,9 +57,7 @@ async def mew_a(event):
 
 
 CmdHelp("alive").add_command(
-  "alive", None, "Shows the Default Alive Message"
-).add_command(
-  "Meow", None, "Shows Inline Alive Menu with more details."
-).add_warning(
-  "✅ Harmless Module"
+    "alive", None, "Shows the Default Alive Message"
+).add_command("Meow", None, "Shows Inline Alive Menu with more details.").add_warning(
+    "✅ Harmless Module"
 ).add()

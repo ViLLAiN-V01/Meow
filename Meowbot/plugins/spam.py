@@ -1,14 +1,10 @@
 import asyncio
-import base64
-import os
-
-from telethon import functions, types
-from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from . import *
 
 SUDO_WALA = Config.SUDO_USERS
 lg_id = Config.LOGGER_ID
+
 
 @bot.on(mew_cmd(pattern="spam (.*)"))
 @bot.on(sudo_cmd(pattern="spam (.*)", allow_sudo=True))
@@ -39,7 +35,7 @@ async def bigspam(Meow):
             await Meow.respond(mew_spam)
         await Meow.delete()
         await Meow.client.send_message(
-                lg_id, f"#BIGSPAM \n\nBigspammed  `{mew_count}`  messages !!"
+            lg_id, f"#BIGSPAM \n\nBigspammed  `{mew_count}`  messages !!"
         )
 
 
@@ -67,7 +63,10 @@ async def _(event):
         input_str = reply_msg
     else:
         input_str = Meow
-    await bot.send_message(lg_id, f"#UNLIMITED_SPAM \n\nStarted Unlimited Spam. Will spam till floodwait. Do `{hl}restart` to stop.")
+    await bot.send_message(
+        lg_id,
+        f"#UNLIMITED_SPAM \n\nStarted Unlimited Spam. Will spam till floodwait. Do `{hl}restart` to stop.",
+    )
     x = 0
     while x < 69:
         await bot.send_message(event.chat_id, input_str)
@@ -87,7 +86,7 @@ async def spammer(e):
         else:
             spam_message = str(e.text[12:])
         rd = int(counter % 100)
-        tot = int((counter - rd )/100)
+        tot = int((counter - rd) / 100)
         a = 30
         for q in range(tot):
             for p in range(100):
@@ -104,8 +103,8 @@ async def spammer(e):
 @bot.on(mew_cmd(pattern="mspam (.*)"))
 @bot.on(sudo_cmd(pattern="mspam (.*)", allow_sudo=True))
 async def tiny_pic_spam(e):
-    sender = await e.get_sender()
-    me = await e.client.get_me()
+    await e.get_sender()
+    await e.client.get_me()
     try:
         await e.delete()
     except:
@@ -130,19 +129,34 @@ async def tiny_pic_spam(e):
 
 
 CmdHelp("spam").add_command(
-  "spam", "<number> <text>", "Sends the text 'X' number of times.", "spam 99 Hello"
+    "spam", "<number> <text>", "Sends the text 'X' number of times.", "spam 99 Hello"
 ).add_command(
-  "mspam", "<reply to media> <number>", "Sends the replied media (gif/ video/ sticker/ pic) 'X' number of times", "mspam 100 <reply to media>"
+    "mspam",
+    "<reply to media> <number>",
+    "Sends the replied media (gif/ video/ sticker/ pic) 'X' number of times",
+    "mspam 100 <reply to media>",
 ).add_command(
-  "dspam", "<delay> <spam count> <text>", "Sends the text 'X' number of times in 'Y' seconds of delay", "dspam 5 100 Hello"
+    "dspam",
+    "<delay> <spam count> <text>",
+    "Sends the text 'X' number of times in 'Y' seconds of delay",
+    "dspam 5 100 Hello",
 ).add_command(
-  "uspam", "<reply to a msg> or <text>", "Spams the message unlimited times until you get floodwait error.", "uspam Hello"
+    "uspam",
+    "<reply to a msg> or <text>",
+    "Spams the message unlimited times until you get floodwait error.",
+    "uspam Hello",
 ).add_command(
-  "bspam", "<count> <text or reply>", "Spams the message X times without floodwait. Breaks the spam count to avoid floodwait.", "bspam 9999 Hello"
+    "bspam",
+    "<count> <text or reply>",
+    "Spams the message X times without floodwait. Breaks the spam count to avoid floodwait.",
+    "bspam 9999 Hello",
 ).add_command(
-  "bigspam", "<count> <text>", "Sends the text 'X' number of times. This what mewbot iz known for. The Best BigSpam Ever", "bigspam 5000 Hello"
+    "bigspam",
+    "<count> <text>",
+    "Sends the text 'X' number of times. This what mewbot iz known for. The Best BigSpam Ever",
+    "bigspam 5000 Hello",
 ).add_info(
-  "Spammers Commands"
+    "Spammers Commands"
 ).add_warning(
-  "❌ May Get Floodwait Error Or Limit Your Account"
+    "❌ May Get Floodwait Error Or Limit Your Account"
 ).add()

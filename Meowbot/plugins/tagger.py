@@ -8,6 +8,7 @@ if Config.TAG_LOGGER:
     tagger = int(Config.TAG_LOGGER)
 
 if Config.TAG_LOGGER:
+
     @bot.on(
         events.NewMessage(
             incoming=True,
@@ -56,9 +57,5 @@ async def _(event):
 
 
 CmdHelp("tagger").add_command(
-  "tagall", "<text>", "Tags recent 100 users in the group."
-).add_info(
-  "Tagger."
-).add_warning(
-  "✅ Harmless Module."
-).add()
+    "tagall", "<text>", "Tags recent 100 users in the group."
+).add_info("Tagger.").add_warning("✅ Harmless Module.").add()

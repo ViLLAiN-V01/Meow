@@ -1,14 +1,15 @@
 import asyncio
 import os
 import sys
+
 import heroku3
 import urllib3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from Meowbot.helpers import runner
-from . import *
 
+from . import *
 
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME or None
 HEROKU_API_KEY = Config.HEROKU_API_KEY or None
@@ -159,12 +160,12 @@ async def upstream(event):
     if conf == "" and not force_update:
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
-        return await event.respond(f"🌚 Do `{hl}update build` to update your **ℳêøաɮøƚ** !!")
+        return await event.respond(
+            f"🌚 Do `{hl}update build` to update your **ℳêøաɮøƚ** !!"
+        )
 
     if force_update:
-        await event.edit(
-            "`Force-Updating ℳêøաɮøƚ. Please wait...`"
-        )
+        await event.edit("`Force-Updating ℳêøաɮøƚ. Please wait...`")
     if conf == "now":
         await event.edit("`Update In Progress! Please Wait....`")
         await update(event, repo, ups_rem, ac_br)
@@ -177,9 +178,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_app = None
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
-            await event.edit(
-                "**Please set up**  `HEROKU_APP_NAME`  **to update!"
-            )
+            await event.edit("**Please set up**  `HEROKU_APP_NAME`  **to update!")
             repo.__del__()
             return
         for app in heroku_applications:
@@ -187,13 +186,9 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 heroku_app = app
                 break
         if heroku_app is None:
-            await event.edit(
-                f"{txt}\n" "`Invalid Heroku vars for updating."
-            )
+            await event.edit(f"{txt}\n" "`Invalid Heroku vars for updating.")
             return repo.__del__()
-        await event.edit(
-            "`Updating Userbot In Progress...Please wait upto 5 minutes.`"
-        )
+        await event.edit("`Updating Userbot In Progress...Please wait upto 5 minutes.`")
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
@@ -211,21 +206,26 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             return repo.__del__()
         build_status = app.builds(order_by="created_at", sort="desc")[0]
         if build_status.status == "failed":
-            await event.edit(
-                "`Build failed ⚠️`"
-            )
+            await event.edit("`Build failed ⚠️`")
             await asyncio.sleep(5)
             return await event.delete()
-        await event.edit(f"**Your ℳêøաɮøƚ Is UpToDate**\n\n**Version :**  __{mew_ver}__\n**Oɯɳҽɾ :**  {mew_mention}")
+        await event.edit(
+            f"**Your ℳêøաɮøƚ Is UpToDate**\n\n**Version :**  __{mew_ver}__\n**Oɯɳҽɾ :**  {mew_mention}"
+        )
     else:
-        await event.edit("**Please set up**  `HEROKU_API_KEY`  **from heroku to update!**")
+        await event.edit(
+            "**Please set up**  `HEROKU_API_KEY`  **from heroku to update!**"
+        )
     return
 
 
 @bot.on(mew_cmd(outgoing=True, pattern=r"update build$"))
 @bot.on(sudo_cmd(pattern="update build$", allow_sudo=True))
 async def upstream(event):
-    event = await edit_or_reply(event, "`Hard-Update In Progress... \nPlease wait until docker build is finished...`")
+    event = await edit_or_reply(
+        event,
+        "`Hard-Update In Progress... \nPlease wait until docker build is finished...`",
+    )
     off_repo = "https://github.com/TeamMew/MeowBot"
     os.chdir("/app")
     git_mew = f"rm -rf .git"
@@ -256,18 +256,24 @@ async def upstream(event):
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    await event.edit(f"**ℳêøաɮøƚ Docker Build In Progress... Type** `{hl}ping`  **after 5 mins to check if Bot is working!**")
+    await event.edit(
+        f"**ℳêøաɮøƚ Docker Build In Progress... Type** `{hl}ping`  **after 5 mins to check if Bot is working!**"
+    )
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
 CmdHelp("update").add_command(
-  "update", None, "Checks if any new update is available."
+    "update", None, "Checks if any new update is available."
 ).add_command(
-  "update now", None, "Soft-Update Your ℳêøաɮøƚ. Basically if you restart dyno it will go back to previous deploy."
+    "update now",
+    None,
+    "Soft-Update Your ℳêøաɮøƚ. Basically if you restart dyno it will go back to previous deploy.",
 ).add_command(
-  "update build", None, "Hard-Update Your ℳêøաɮøƚ. This won't take you back to your previous deploy. This will be triggered even if there is no changelog."
+    "update build",
+    None,
+    "Hard-Update Your ℳêøաɮøƚ. This won't take you back to your previous deploy. This will be triggered even if there is no changelog.",
 ).add_info(
-  "ℳêøաɮøƚ Updater."
+    "ℳêøաɮøƚ Updater."
 ).add_warning(
-  "✅ Harmless Module."
+    "✅ Harmless Module."
 ).add()

@@ -1,16 +1,16 @@
 import glob
-import os
 import sys
 from pathlib import Path
 
 import telethon.utils
 from telethon import TelegramClient
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from telethon.tl.functions.channels import JoinChannelRequest
 
 from Meowbot import LOGS, bot, tbot
 from Meowbot.config import Config
 from Meowbot.utils import load_module
 from Meowbot.version import __mew__ as mewver
+
 hl = Config.HANDLER
 MEOW_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/9c7697cc000ea739d1986.jpg"
 
@@ -92,11 +92,12 @@ async def mew_is_on():
     except Exception as e:
         LOGS.info(str(e))
 
-# Join MeowBot Channel after deploying 🤐😅
+    # Join MeowBot Channel after deploying 🤐😅
     try:
         await bot(JoinChannelRequest("@Its_MeowBot"))
     except BaseException:
         pass
+
 
 # Why not come here and chat??
 #    try:

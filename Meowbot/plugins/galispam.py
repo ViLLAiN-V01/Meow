@@ -1,12 +1,14 @@
-#crafit @Shinchan7222
+# crafit @Shinchan7222
 
 from . import *
 
 x = True
+
+
 @bot.on(mew_cmd(pattern="galispam"))
 async def _(event):
     while x != False:
-       
+
         await event.delete()
         kek = event.chat_id
         await mewbot.send_message(kek, "TERIIIIII")

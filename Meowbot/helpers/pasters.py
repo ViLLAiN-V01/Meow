@@ -9,6 +9,7 @@ headers = {
     "content-type": "application/json",
 }
 
+
 async def pasty(message, extension=None):
     siteurl = "https://pasty.lus.pm/api/v1/pastes"
     data = {"content": message}
@@ -36,4 +37,3 @@ async def pasty(message, extension=None):
             "bin": "Pasty",
         }
     return {"error": "Unable to reach pasty.lus.pm"}
-

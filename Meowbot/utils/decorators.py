@@ -1,24 +1,13 @@
-import asyncio
-import datetime
-import importlib
 import inspect
-import logging
-import math
-import os
 import re
-import sys
-import time
-import traceback
 from pathlib import Path
-from time import gmtime, strftime
 
 from telethon import events
-from telethon.tl.functions.channels import GetParticipantRequest
-from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
 from Meowbot import *
-from Meowbot.helpers import *
 from Meowbot.config import Config
+from Meowbot.helpers import *
+
 
 # admin cmd or normal user cmd
 def mew_cmd(pattern=None, command=None, **args):
@@ -72,7 +61,7 @@ def mew_cmd(pattern=None, command=None, **args):
     elif "incoming" in args and not args["incoming"]:
         args["outgoing"] = True
 
-    # blacklisted chats. 
+    # blacklisted chats.
     # Meowbot will not respond in these chats.
     args["blacklist_chats"] = True
     black_list_chats = list(Config.BL_CHAT)
@@ -295,5 +284,6 @@ def command(**args):
         return func
 
     return decorator
+
 
 # Meowbot

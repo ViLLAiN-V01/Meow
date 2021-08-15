@@ -1,16 +1,9 @@
-import cv2
 import os
-import io
-import random
 import shutil
-import re
-import textwrap
-import lottie
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
+import cv2
 
 from . import *
-
 
 path = "./mewmify/"
 if not os.path.isdir(path):
@@ -23,12 +16,15 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await eod(event, "You need to reply to an image with .mmf` 'text on top' ; 'text on bottom'")
+        await eod(
+            event,
+            "You need to reply to an image with .mmf` 'text on top' ; 'text on bottom'",
+        )
         return
     await eor(event, "🤪 **Memifying...**")
     reply = await event.get_reply_message()
     imgs = await bot.download_media(reply.media, path)
-    img = cv2.VideoCapture(imgs) 
+    img = cv2.VideoCapture(imgs)
     tal, semx = img.read()
     cv2.imwrite("mew.webp", semx)
     text = event.pattern_match.group(1)
@@ -48,12 +44,15 @@ async def sed(Meowmew):
     if Meowmew.fwd_from:
         return
     if not Meowmew.reply_to_msg_id:
-        await eod(Meowmew, "You need to reply to an image with .mms` 'text on top' ; 'text on bottom'")
+        await eod(
+            Meowmew,
+            "You need to reply to an image with .mms` 'text on top' ; 'text on bottom'",
+        )
         return
     await eor(Meowmew, "🤪 **Memifying...**")
     reply = await Meowmew.get_reply_message()
     imgs = await bot.download_media(reply.media, path)
-    img = cv2.VideoCapture(imgs) 
+    img = cv2.VideoCapture(imgs)
     tal, semx = img.read()
     cv2.imwrite("mew.webp", semx)
     text = Meowmew.pattern_match.group(1)
@@ -65,7 +64,8 @@ async def sed(Meowmew):
     shutil.rmtree(path)
     os.remove("mew.webp")
     os.remove(photo)
-    
+
+
 @bot.on(mew_cmd(pattern="doge(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="doge(?: |$)(.*)", allow_sudo=True))
 async def nope(mew):
@@ -91,7 +91,7 @@ async def nope(mew):
             )
         await hel_.delete()
     else:
-     await eod(mew, "Error 404:  Not Found")
+        await eod(mew, "Error 404:  Not Found")
 
 
 @bot.on(mew_cmd(pattern="gg(?: |$)(.*)", outgoing=True))
@@ -119,19 +119,25 @@ async def nope(mew):
             )
         await hel_.delete()
     else:
-     await eod(mew, "Error 404:  Not Found")
+        await eod(mew, "Error 404:  Not Found")
 
-    
+
 CmdHelp("memify").add_command(
-  "mmf", "<reply to a img/stcr/gif> <upper text> ; <lower text>", "Memifies the replied image/gif/sticker with your text and sends output in sticker format.", "mmf <reply to a img/stcr/gif> hii ; hello"
+    "mmf",
+    "<reply to a img/stcr/gif> <upper text> ; <lower text>",
+    "Memifies the replied image/gif/sticker with your text and sends output in sticker format.",
+    "mmf <reply to a img/stcr/gif> hii ; hello",
 ).add_command(
-  "mms", "<reply to a img/stcr/gif> <upper text> ; <lower text>", "Memifies the replied image/gif/sticker with your text and sends output in image format.", "mms <reply to a img/stcr/gif> hii ; hello"
+    "mms",
+    "<reply to a img/stcr/gif> <upper text> ; <lower text>",
+    "Memifies the replied image/gif/sticker with your text and sends output in image format.",
+    "mms <reply to a img/stcr/gif> hii ; hello",
 ).add_command(
-  "doge", "<text>", "Makes A Sticker of Doge with given text."
+    "doge", "<text>", "Makes A Sticker of Doge with given text."
 ).add_command(
-  "gg", "<text>", "Makes google search sticker."
+    "gg", "<text>", "Makes google search sticker."
 ).add_info(
-  "Make Memes on telegram 😉"
+    "Make Memes on telegram 😉"
 ).add_warning(
-  "✅ Harmless Module."
+    "✅ Harmless Module."
 ).add()

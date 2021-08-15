@@ -1,12 +1,10 @@
-import logging
-import json
-import os
 import datetime
+import logging
+import os
 import re
 
 import requests
 from requests import exceptions, get
-from telethon import events
 from telethon.utils import get_extension
 
 from . import *
@@ -15,6 +13,7 @@ logging.basicConfig(
     format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
 )
 
+
 def progress(current, total):
     logger.info(
         "**Downloaded**  `{}`  **of**  `{}`\n**Completed**  `{}`".format(
@@ -22,7 +21,9 @@ def progress(current, total):
         )
     )
 
+
 DOGBIN_URL = "https://del.dog/"
+
 
 @bot.on(mew_cmd(pattern="paste ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="paste ?(.*)", allow_sudo=True))
@@ -102,21 +103,28 @@ async def get_dogbin_content(dog_url):
     try:
         resp.raise_for_status()
     except exceptions.HTTPError as HTTPErr:
-        await eod(Meow, "Request returned an unsuccessful status code.\n\n" + str(HTTPErr)
+        await eod(
+            Meow, "Request returned an unsuccessful status code.\n\n" + str(HTTPErr)
         )
         return
     except exceptions.Timeout as TimeoutErr:
         await eod(Meow, "Request timed out." + str(TimeoutErr))
         return
     except exceptions.TooManyRedirects as RedirectsErr:
-        await eod(Meow, "Request exceeded the configured number of maximum redirections."
-            + str(RedirectsErr)
+        await eod(
+            Meow,
+            "Request exceeded the configured number of maximum redirections."
+            + str(RedirectsErr),
         )
         return
 
-    reply_text = "**😏 Fetched dogbin URL content successfully!** \n\n📝** Content:**  " + resp.text
+    reply_text = (
+        "**😏 Fetched dogbin URL content successfully!** \n\n📝** Content:**  "
+        + resp.text
+    )
 
     await eor(dog_url, reply_text)
+
 
 @bot.on(mew_cmd(pattern="neko ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="neko ?(.*)", allow_sudo=True))
@@ -176,13 +184,13 @@ async def _(event):
 
 
 CmdHelp("paste").add_command(
-  "paste", "<text/reply>", "Create a paste or a shortened url using dogbin"
+    "paste", "<text/reply>", "Create a paste or a shortened url using dogbin"
 ).add_command(
-  "getpaste", "dog url", "Gets the content of a paste or shortened url from dogbin"
+    "getpaste", "dog url", "Gets the content of a paste or shortened url from dogbin"
 ).add_command(
-  "neko", "<reply>", "Create a paste or a shortened url using nekobin"
+    "neko", "<reply>", "Create a paste or a shortened url using nekobin"
 ).add_info(
-  "Paste Things to Neko."
+    "Paste Things to Neko."
 ).add_warning(
-  "✅ Harmless Module."
+    "✅ Harmless Module."
 ).add()

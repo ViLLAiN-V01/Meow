@@ -1,7 +1,7 @@
-import asyncio
 import datetime
 
 from . import *
+
 
 @bot.on(mew_cmd(pattern="ping$"))
 @bot.on(sudo_cmd(pattern="ping$", allow_sudo=True))
@@ -18,9 +18,7 @@ async def pong(Meow):
 
 
 CmdHelp("ping").add_command(
-  "ping", None, "Checks the ping speed of your ℳêøաɮøƚ"
-).add_warning(
-  "✅ Harmless Module"
-).add()
+    "ping", None, "Checks the ping speed of your ℳêøաɮøƚ"
+).add_warning("✅ Harmless Module").add()
 
 # Meowbot
