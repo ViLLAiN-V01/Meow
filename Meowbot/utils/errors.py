@@ -11,7 +11,6 @@ def errors_handler(func):
         try:
             await func(errors)
         except BaseException:
-
             date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
             new = {"error": str(sys.exc_info()[1]), "date": datetime.datetime.now()}
 

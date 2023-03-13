@@ -14,6 +14,7 @@ from Meowbot.version import __mew__ as mewver
 hl = Config.HANDLER
 MEOW_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/9c7697cc000ea739d1986.jpg"
 
+
 # let's get the bot ready
 async def mew_bot(bot_token):
     try:
@@ -79,6 +80,7 @@ LOGS.info("⚡ Your MeowBot Is Now Working ⚡")
 LOGS.info(
     "Head to @Its_MeowBot for Updates. Also join chat group to get help regarding to MeowBot."
 )
+
 
 # that's life...
 async def mew_is_on():

@@ -374,9 +374,7 @@ async def _(event):
 @bot.on(mew_cmd(pattern="phub$", outgoing=True))
 @bot.on(sudo_cmd(pattern="phub$", allow_sudo=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
 
     animation_interval = 0.5
@@ -397,7 +395,6 @@ async def _(event):
     ]
 
     for i in animation_ttl:
-
         await asyncio.sleep(animation_interval)
 
         await event.edit(animation_chars[i % 10])
@@ -406,9 +403,7 @@ async def _(event):
 @bot.on(mew_cmd(pattern=r"amore$", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"amore$", allow_sudo=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
 
     animation_interval = 0.5
@@ -428,7 +423,6 @@ async def _(event):
     ]
 
     for i in animation_ttl:
-
         await asyncio.sleep(animation_interval)
 
         await event.edit(animation_chars[i % 10])
@@ -437,9 +431,7 @@ async def _(event):
 @bot.on(mew_cmd(pattern=r"sexy$", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"sexy$", allow_sudo=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
 
     animation_interval = 0.5
@@ -458,7 +450,6 @@ async def _(event):
     ]
 
     for i in animation_ttl:
-
         await asyncio.sleep(animation_interval)
 
         await event.edit(animation_chars[i % 10])
@@ -467,9 +458,7 @@ async def _(event):
 @bot.on(mew_cmd(pattern="istar$", outgoing=True))
 @bot.on(sudo_cmd(pattern="istar$", allow_sudo=True))
 async def ammastar(mewstar):
-
     if mewstar.fwd_from:
-
         return
 
     animation_interval = 2
@@ -487,7 +476,6 @@ async def ammastar(mewstar):
     ]
 
     for i in animation_ttl:
-
         await asyncio.sleep(animation_interval)
 
         await mewstar.edit(animation_chars[i % 11])
@@ -553,9 +541,7 @@ async def getwell(event):
 @bot.on(mew_cmd(pattern="switch$", outgoing=True))
 @bot.on(sudo_cmd(pattern="switch$", allow_sudo=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
 
     animation_interval = 0.5
@@ -583,7 +569,6 @@ async def _(event):
     ]
 
     for i in animation_ttl:
-
         await asyncio.sleep(animation_interval)
 
         await event.edit(animation_chars[i % 11])
